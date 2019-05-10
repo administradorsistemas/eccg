@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "";
+    if (Session["IdUsuario"] == null || Session["IdEmpresa"] == null)
+    {
+        Response.Redirect("~/Account/Login");
+    }
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.Action("GridViewPartial_tipo_gastos_personal_anual", new {ViewBag.IdTipoGasto })
+}
